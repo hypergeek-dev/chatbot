@@ -1,2 +1,6 @@
 # chatbot
-Huggingface with Llama model build
+
+###Features
+Conversational AI
+Audio response
+Multimodal search
