@@ -1,13 +1,13 @@
 import os
-from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
-from dotenv import load_dotenv
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-load_dotenv()
+# Define the path to the directory containing the model files
+model_directory = "gemma-7b-it"
 
-access_token = os.getenv("ACCESS_TOKEN")
-tokenizer = AutoTokenizer.from_pretrained("google/gemma-1.1-7b-it", token=access_token)
-model = AutoModelForCausalLM.from_pretrained("google/gemma-1.1-7b-it", token=access_token)
+# Load the tokenizer and model from the local directory
+tokenizer = AutoTokenizer.from_pretrained(model_directory)
+model = AutoModelForCausalLM.from_pretrained(model_directory)
 
 # Determine device
 device = "cuda" if torch.cuda.is_available() else "cpu"

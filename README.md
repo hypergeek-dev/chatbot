@@ -14,12 +14,26 @@ This chatbot utilizes Hugging Face and Gemma data model. Gemma is a family of li
     pip install transformers torch python-dotenv
     ```
 
-2. Create a `.env` file in the project directory and add your access token:
+2. Use an access token as git password/credential
+
+   ```bash
+   # Make sure you have git-lfs installed (https://git-lfs.com)
+   git lfs install
+
+   # When prompted for a password, use an access token with write permissions.
+   # Generate one from your settings: https://huggingface.co/settings/tokens
+   git clone https://huggingface.co/google/gemma-1.1-7b-it
+
+   # If you want to clone without large files - just their pointers
+   GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/google/gemma-1.1-7b-it
+
+
+3. Create a `.env` file in the project directory and add your access token:
     ```
     ACCESS_TOKEN=your_access_token_here
     ```
 
-3. Run the script:
+4. Run the script:
     ```bash
     python chatbot.py
     ```
