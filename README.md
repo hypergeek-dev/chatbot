@@ -21,7 +21,7 @@ We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 t
 
 3. Run the script:
     ```bash
-    python chatbot.py
+    python main.py
     ```
 
 4. Start interacting with the chatbot. Type your messages and press Enter. To exit the conversation, type "exit" and press Enter.
