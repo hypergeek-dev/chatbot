@@ -1,7 +1,8 @@
-# Chatbot
+# Phi-3-mini Chatbot
 
 ## Introduction
-This chatbot utilizes Hugging Face and Gemma data model. Gemma is a family of lightweight, state-of-the-art open models built from the same research and technology used to create the Gemini models. Developed by Google DeepMind and other teams across Google, Gemma is named after the Latin gemma, meaning "precious stone." The Gemma model weights are supported by developer tools that promote innovation, collaboration, and the responsible use of artificial intelligence (AI).
+We introduce phi-3-mini, a 3.8 billion parameter language model trained on 3.3 trillion tokens, whose overall performance, as measured by both academic benchmarks and internal testing, rivals that of models such as Mixtral 8x7B and GPT-3.5 (e.g., phi-3-mini achieves 69% on MMLU and 8.38 on MT-bench), despite being small enough to be deployed on a phone. The innovation lies entirely in our dataset for training, a scaled-up version of the one used for phi-2, composed of heavily filtered web data and synthetic data. The model is also further aligned for robustness, safety, and chat format. We also provide some initial parameter-scaling results with a 7B and 14B models trained for 4.8T tokens, called phi-3-small and phi-3-medium, both significantly more capable than phi-3-mini (e.g., respectively 75% and 78% on MMLU, and 8.7 and 8.9 on MT-bench).
+
 
 ## Features
 - Conversational AI
@@ -11,33 +12,17 @@ This chatbot utilizes Hugging Face and Gemma data model. Gemma is a family of li
 ## Usage
 1. Install dependencies:
     ```bash
-    pip install transformers torch python-dotenv
+    pip install transformers
     ```
 
-2. Use an access token as git password/credential
+2. Clone the `microsoft/Phi-3-mini-128k-instruct` model from the Hugging Face model hub:
+    ```bash
+    git clone https://huggingface.co/microsoft/Phi-3-mini-128k-instruct
 
-   ```bash
-   # Make sure you have git-lfs installed (https://git-lfs.com)
-   git lfs install
-
-   # When prompted for a password, use an access token with write permissions.
-   # Generate one from your settings: https://huggingface.co/settings/tokens
-   git clone https://huggingface.co/google/gemma-1.1-7b-it
-
-   # If you want to clone without large files - just their pointers
-   GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/google/gemma-1.1-7b-it
-
-
-3. Create a `.env` file in the project directory and add your access token:
-    ```
-    ACCESS_TOKEN=your_access_token_here
-    ```
-
-4. Run the script:
+3. Run the script:
     ```bash
     python chatbot.py
     ```
 
 4. Start interacting with the chatbot. Type your messages and press Enter. To exit the conversation, type "exit" and press Enter.
 
-NB. This is a product in the making and has not yet been fine-tuned for local use. Response time might be slow.
